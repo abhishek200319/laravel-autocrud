@@ -1,32 +1,47 @@
 {
-    "name": "larapi/laravel-autocrud",
+    "name": "abhishekdixit0407/laravel-autocrud",
     "description": "A package to create automatic crud api for a specific resource",
-    "type": "library",
+    "keywords": [
+        "laravel-api",
+        "laravel-api-autocrud"
+    ],
+    "homepage": "https://github.com/abhishek200319/laravel-autocrud",
     "license": "MIT",
+    "authors": [
+        {
+            "name": "abhishek dixit",
+            "email": "abhishekdixit342@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^5.0|^7.0|^8.0",
+        "illuminate/contracts": "^6.0|^7.0|^8.0|^9.0|^10.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^7.0",
+        "phpstan/phpstan-phpunit": "^1.0",
+        "phpunit/phpunit": "^9.5"
+    },
     "autoload": {
         "psr-4": {
-            "Api\\LaravelAutocrud\\": "src/"
+            "Api\\LaravelAutocrud\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Api\\LaravelAutocrud\\Tests\\Feature\\": "tests/Feature/"
+            "Api\\LaravelAutocrud\\Tests\\": "tests"
         }
     },
-    "authors": [
-        {
-            "name": "abhishek dixit",
-            "email": "abhishekdixit342@gmail.com"
-        }
-    ],
-    "require": {
-        "php": "^7.1|^8.0",
-        "illuminate/support": "^5.0|^6.0|^7.0|^8.0|^9.0"
+    "scripts": {
+        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+        "analyse": "vendor/bin/phpstan analyse",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint"
     },
-    "minimum-stability": "dev",
-    "require-dev": {
-        "phpunit/phpunit": "^9.0",
-        "orchestra/testbench": "^6.0"
+    "config": {
+        "sort-packages": true
     },
     "extra": {
         "laravel": {
@@ -35,6 +50,7 @@
             ]
         }
     },
-    
+    "minimum-stability": "dev",
     "prefer-stable": true
 }
+

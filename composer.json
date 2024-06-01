@@ -1,5 +1,5 @@
 {
-    "name": "abhishek-himanshu-04/laravel-autocrud",
+    "name": "larapi/laravel-autocrud",
     "description": "A package to create automatic crud api for a specific resource",
     "type": "library",
     "license": "MIT",

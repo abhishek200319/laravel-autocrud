@@ -10,9 +10,9 @@ You can install Laravel AutoCrud via Composer:
 ````
 composer require abhishek/laravel-autocrud
 ````
-After installation, publish the package assets:
+After installation, just add below provider in app.php inside 'providers' key:
 ````
-php artisan vendor:publish --provider="Api\LaravelAutocrud\AutoCrudServiceProvider"
+Api\LaravelAutocrud\AutoCrudServiceProvider::class
 ````
 To generate CRUD API endpoints for a resource, use the following command:
 ````

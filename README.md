@@ -5,23 +5,35 @@ Laravel AutoCrud is a handy package that helps you quickly create CRUD (Create, 
 
 ## Installation
 
-You can install Laravel AutoCrud via Composer:
+- You can install Laravel AutoCrud via Composer:
 
 ````
 composer require abhishekdixit0407/laravel-autocrud
 ````
-After installation, just add below provider in app.php inside 'providers' key:
+- After installation, just add below provider in app.php inside 'providers' key:
 ````
 Api\LaravelAutocrud\AutoCrudServiceProvider::class
 ````
-To generate CRUD API endpoints for a resource, use the following command:
+- To generate CRUD API endpoints for a resource, use the following command:
 ````
 php artisan autocrud:api ResourceName --columns="name:string,email:string" 
 ````
-Replace ResourceName with the name of your unique resource(Example:User,Post,Medicine....etc).
+- Replace ResourceName with the name of your unique resource(Example:User,Post,Medicine....etc).
 Use the --columns option to specify the columns of your database with its type (their is no limaitation to add column)
 
-Modify migration file according to your need and run:
+- Modify migration file according to your need and run:
 ````
 php artisan migrate
 ````
+- Now your Laravel app have below routes registered. To see routes:
+
+| Method | Route       | Route Name   | Operation |    description      |
+|--------|-------------|--------------|-----------|---------------------|  
+| Get    | /users      | users_index  | Index     | You can also filter |
+|        |             |              |           |  the results,  e.g: |
+|        |             |              |           |  /users?name=abhi   |
+| Get    | /users/{id} | users_view   | View      |                     |
+| Post   | /users      | users_create | Create    |                     |
+| Put    | /users/{id} | users_update | Update    |                     |
+| Delete | /users/{id} | users_delete | Delete    |                     | 
+                                                       

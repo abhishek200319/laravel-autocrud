@@ -1,7 +1,7 @@
 
 # Laravel AutoCrud
 
-Laravel AutoCrud is a handy package that helps you quickly create CRUD (Create, Read, Update, Delete) API endpoints for your Laravel applications. With just a single Artisan command, you can generate all the necessary files to manage your resources effortlessly.
+Laravel AutoCrud is a handy package that helps you quickly create CRUD API(Create, Read, Update, Delete) API endpoints for your Laravel applications. With just a single Artisan command, you can generate all the necessary files to manage your resources effortlessly.
 
 ## Installation
 
@@ -27,13 +27,13 @@ php artisan migrate
 ````
 - Now your Laravel app have below routes registered. To see routes:
 
-| Method | Route       | Route Name   | Operation |    description      |
-|--------|-------------|--------------|-----------|---------------------|  
-| Get    | /users      | users_index  | Index     | You can also filter |
-|        |             |              |           |  the results,  e.g: |
-|        |             |              |           |  /users?name=abhi   |
-| Get    | /users/{id} | users_view   | View      |                     |
-| Post   | /users      | users_create | Create    |                     |
-| Put    | /users/{id} | users_update | Update    |                     |
-| Delete | /users/{id} | users_delete | Delete    |                     | 
+| Method | Route          | Route Name   | Operation |    description      |
+|--------|----------------|--------------|-----------|---------------------|  
+| Get    | api/users      | users_index  | Index     | You can also filter |
+|        |                |              |           |  the results,  e.g: |
+|        |                |              |           |  /users?name=abhi   |
+| Get    | api/users/{id} | users_view   | View      |                     |
+| Post   | api/users      | users_create | Create    |                     |
+| Put    | api/users/{id} | users_update | Update    |                     |
+| Delete | api/users/{id} | users_delete | Delete    |                     | 
                                                        

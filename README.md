@@ -29,7 +29,7 @@ Use the --columns option to specify the columns of your database with its type (
 ````
 php artisan migrate
 ````
-- Now your Laravel app have below routes registered. To see routes:
+- Now your Laravel app have below routes registered with soft delete. To see routes:
 
 | Method | Route          | Route Name   | Operation |    description      |
 |--------|----------------|--------------|-----------|---------------------|  

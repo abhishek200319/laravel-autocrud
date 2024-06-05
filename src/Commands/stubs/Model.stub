@@ -1,0 +1,43 @@
+<?php
+
+namespace {{Namespace}};
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+/**
+ * Class {{modelName}}
+ * 
+ * This model represents the {{modelName}} entity.
+ */
+class {{modelName}} extends Model
+{
+    use SoftDeletes;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        {{fillableColumns}}
+    ];
+
+    /**
+     * Scope a query to apply filters based on fillable attributes.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @param  array  $filters
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeFilter($query, array $filters)
+    {
+        foreach ($filters as $field => $value) {
+            // Apply the filter only if the field is fillable and the value is not empty.
+            if (in_array($field, $this->fillable) && !empty($value)) {
+                $query->where($field, $value);
+            }
+        }
+        return $query;
+    }
+}

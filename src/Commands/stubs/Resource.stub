@@ -1,0 +1,32 @@
+<?php
+
+namespace App\Http\Resources;
+
+use Illuminate\Http\Resources\Json\JsonResource;
+
+/**
+ * Class {{resourceName}}Resource
+ * 
+ * This resource transforms the {{resourceName}} model into a JSON representation.
+ */
+class {{resourceName}}Resource extends JsonResource
+{
+    /**
+     * Transform the resource into an array.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
+    public function toArray($request)
+    {
+        // Check if the resource is empty and return an empty array if so.
+        if (empty($this->resource)) {
+            return [];
+        }
+
+        // Return the resource fields as an associative array.
+        return [
+            {{resourceFields}}
+        ];
+    }
+}

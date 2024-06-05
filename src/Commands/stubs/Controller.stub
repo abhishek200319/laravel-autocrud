@@ -1,0 +1,98 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use {{modelNamespace}};
+use {{resourceNamespace}};
+use {{collectionNamespace}};
+
+/**
+ * Class {{controllerName}}
+ * 
+ * This controller handles CRUD operations for the {{modelName}} model.
+ */
+class {{controllerName}} extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
+    {
+        // Get a paginated list of {{modelName}} models, optionally filtering based on request parameters.
+        $models = {{modelName}}::filter($request->all())->paginate(10);
+        
+        // Return the collection of models in the form of a resource collection.
+        return new {{resourceName}}Collection($models);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        // Create a new {{modelName}} model using the request data.
+        $model = {{modelName}}::create($request->all());
+        
+        // Return the newly created model in the form of a resource.
+        return new {{resourceName}}Resource($model);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        // Find the {{modelName}} model by its ID.
+        $model = {{modelName}}::findOrFail($id);
+        
+        // Return the found model in the form of a resource.
+        return new {{resourceName}}Resource($model);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        // Find the {{modelName}} model by its ID.
+        $model = {{modelName}}::findOrFail($id);
+        
+        // Update the model with the request data.
+        $model->update($request->all());
+        
+        // Return the updated model in the form of a resource.
+        return new {{resourceName}}Resource($model);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        // Find the {{modelName}} model by its ID.
+        $model = {{modelName}}::findOrFail($id);
+        
+        // Delete the model.
+        $model->delete();
+        
+        // Return a no content response to indicate successful deletion.
+        return response()->noContent();
+    }
+}

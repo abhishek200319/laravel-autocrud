@@ -25,8 +25,11 @@ class AutoCrudServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
-                Console\Commands\AutoCrudCreate::class,
+                Commands\AutoCrudCreate::class,
             ]);
+            $this->publishes([
+                __DIR__ . '\Commands\stubs' => resource_path('stubs'),
+            ], 'api-autocrud');
         }
     }
 }

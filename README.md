@@ -14,6 +14,10 @@ composer require abhishekdixit0407/laravel-autocrud
 ````
 Api\LaravelAutocrud\AutoCrudServiceProvider::class
 ````
+- run:
+````
+php artisan vendor:publish --tag=api-autocrud
+````
 - To generate CRUD API endpoints for a resource, use the following command:
 ````
 php artisan autocrud:api ResourceName --columns="name:string,email:string" 

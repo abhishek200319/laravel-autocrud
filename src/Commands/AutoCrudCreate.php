@@ -249,7 +249,7 @@ class AutoCrudCreate extends Command
     {
         $resourceFields = '';
         foreach ($columnsArray as $name => $type) {
-            $resourceFields .= "'{$name}' => \$this->{$name},\n                ";
+               $resourceFields .= "'{$name}' => \$this->{$name},\n            ";
         }
 
         $resourceFields = rtrim($resourceFields, ",\n");

@@ -206,7 +206,7 @@ class AutoCrudCreate extends Command
             $modelStub = File::get(resource_path('stubs/model.stub'));
             $modelNamespace = $this->getModelNamespace($modelPath);
             $modelName = str_replace(".php","",class_basename($modelPath)); // Remove extension from class name
-            
+            $modelNamespace = str_replace("\\$modelName","",$this->getModelNamespace($modelPath));
             $modelContent = $this->replacePlaceholders($modelStub, [
                 'modelName' => $modelName,
                 'fillableColumns' => $fillable,

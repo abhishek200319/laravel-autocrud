@@ -95,6 +95,12 @@ class AutoCrudCreate extends Command
     protected function getModelPath(string $name): string
     {
         $modelDirectory = app_path('Models');
+    
+        // Check if the Models directory exists, otherwise use the app directory
+        if (!is_dir($modelDirectory)) {
+            $modelDirectory = app_path();
+        }
+    
         return "{$modelDirectory}/{$name}.php";
     }
 
@@ -185,7 +191,9 @@ class AutoCrudCreate extends Command
     protected function getLatestMigrationPath(): ?string
     {
         $migrationFiles = File::files(database_path('migrations'));
-        $latestFile = collect($migrationFiles)->sortByDesc(fn($file) => $file->getMTime())->first();
+        $latestFile = collect($migrationFiles)->sortByDesc(function ($file) {
+            return $file->getMTime();
+        })->first();
 
         return $latestFile ? $latestFile->getPathname() : null;
     }

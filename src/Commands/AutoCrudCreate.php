@@ -232,7 +232,7 @@ class AutoCrudCreate extends Command
 
     protected function createResource(string $resource, array $columnsArray): void
     {
-        $resourceName = "{$resource}";
+        $resourceName = "{$resource}Resource";
         Artisan::call('make:resource', ['name' => $resourceName]);
         $resourcePath = app_path("Http/Resources/{$resourceName}.php");
 

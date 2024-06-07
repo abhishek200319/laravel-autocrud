@@ -94,15 +94,19 @@ class AutoCrudCreate extends Command
 
     protected function getModelPath(string $name): string
     {
-        $modelDirectory = app_path('Models');
-    
-        // Check if the Models directory exists, otherwise use the app directory
-        if (!is_dir($modelDirectory)) {
+        $laravelVersion = app()->version();
+        
+        // Use Models directory for Laravel 8 and later
+        if (version_compare($laravelVersion, '8.0.0', '>=')) {
+            $modelDirectory = app_path('Models');
+        } else {
+            // Use app directory for Laravel 7 and earlier
             $modelDirectory = app_path();
         }
-    
+        
         return "{$modelDirectory}/{$name}.php";
     }
+    
 
     protected function fileExists(string $filePath): bool
     {
@@ -279,7 +283,6 @@ class AutoCrudCreate extends Command
     {
         $relativePath = str_replace([app_path(), '.php'], '', $modelPath);
         $relativePath = str_replace('/', '\\', $relativePath);
-        \Log::info($relativePath);
         return 'App' . $relativePath;
     }
     

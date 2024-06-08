@@ -27,9 +27,9 @@ class AutoCrudServiceProvider extends ServiceProvider
             $this->commands([
                 Commands\AutoCrudCreate::class,
             ]);
-            $this->publishes([
-                __DIR__ . '/Commands/stubs' => resource_path('stubs'),
-            ], 'api-autocrud');
+            // $this->publishes([
+            //     __DIR__ . '/Commands/stubs' => resource_path('stubs'),
+            // ], 'api-autocrud');
         }
     }
 }

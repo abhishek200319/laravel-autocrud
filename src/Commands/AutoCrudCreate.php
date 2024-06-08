@@ -138,7 +138,7 @@ class AutoCrudCreate extends Command
         $resourceNamespace = "App\\Http\\Resources\\{$resource}Resource";
         $collectionNamespace = "App\\Http\\Resources\\{$resource}Collection";
         // $controllerStub = File::get(resource_path('stubs/Controller.stub'));
-        $controllerStub = File::get(__DIR__ . '/../stubs/Controller.stub');
+        $controllerStub = File::get(__DIR__ . '\stubs\Controller.stub');
         $controllerContent = $this->replacePlaceholders($controllerStub, [
             'controllerName' => $controllerName,
             'modelName' => $modelName,
@@ -216,7 +216,7 @@ class AutoCrudCreate extends Command
         if (File::exists($modelPath)) {
             $fillable = "'" . implode("', '", array_keys($columnsArray)) . "'";
             // $modelStub = File::get(resource_path('stubs/Model.stub'));
-            $modelStub = File::get(__DIR__ . '/../stubs/Model.stub');
+            $modelStub = File::get(__DIR__ . '\stubs\Model.stub');
             $modelNamespace = $this->getModelNamespace($modelPath);
             $modelName = str_replace(".php","",class_basename($modelPath)); // Remove extension from class name
             $modelNamespace = str_replace("\\$modelName","",$this->getModelNamespace($modelPath));
@@ -243,7 +243,7 @@ class AutoCrudCreate extends Command
 
         if (File::exists($resourcePath)) {
             // $resourceStub = File::get(resource_path('stubs/Resource.stub'));
-            $resourceStub = File::get(__DIR__ . '/../stubs/Resource.stub');
+            $resourceStub = File::get(__DIR__ . '\stubs\Resource.stub');
             $resourceContent = $this->updateResourceFile($resourceStub, $columnsArray, $resourceName);
             File::put($resourcePath, $resourceContent);
             $this->info("Resource {$resourceName} created and updated successfully.");

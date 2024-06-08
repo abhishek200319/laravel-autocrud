@@ -10,11 +10,7 @@ Laravel AutoCrud is a handy package that helps you quickly create CRUD API(Creat
 ````
 composer require abhishekdixit0407/laravel-autocrud
 ````
-- After installation, just add below provider in app.php inside 'providers' key:
-````
-Api\LaravelAutocrud\AutoCrudServiceProvider::class
-````
-- To generate CRUD API endpoints for a resource, use the following command:
+- After installation, To generate CRUD API endpoints for a resource, use the following command:
 ````
 php artisan autocrud:api ResourceName --columns="name:string,email:string,data:json" 
 ````
